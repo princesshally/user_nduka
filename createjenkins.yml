@@ -1,0 +1,14 @@
+ - hosts: localhost
+   become: yes
+   tasks:
+     - name: create directory root nduka
+       file:
+         name: /nduka
+         state: directory
+         mode: 0775
+
+
+     - name: copy fstab file to nduka directory
+       copy:
+         src: /etc/fstab
+         dest: /nduka
