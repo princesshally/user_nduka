@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages{
+            stage('SCM Checkout'){
+                    steps{
+         git'https://github.com/princesshally/user_nduka.git'
+                    }
+            }
+            stage('run ansible playbook'){
+                    steps{
+          ansiblePlaybook become: true, becomeUser: 'ansible', credentialsId: '709ba611-f04d-4d41-a726-eff3ac6ab2e0', installation: 'Ansible', inventory: 'localhosts', playbook: 'createjenkins.yml'
+                    }
+            }
+     }
+}
