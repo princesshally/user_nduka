@@ -1,4 +1,4 @@
- - hosts: localhost
+ - hosts: dev
    become: yes
    become_method: sudo
    tasks:
